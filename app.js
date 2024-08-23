@@ -1,35 +1,49 @@
 let value = [];
 let operation = 0;
+let flag = 0;
 
-
-operation = prompt("Ingrese tipo de operación. Escriba suma, resta, multiplicación, división o salir");
-if(operation == "salir"){
-    alert(`¡Hasta la próxima!`);
-}else{
-    value[0] = prompt("Ingrese el primer valor");
-    value[1] = prompt("Ingrese el segundo valor");
+while(flag == 0){
+    operation = home();
+    
     switch (operation){
         case "suma":
-            value[3] = suma(value[1], value[2]);
-            printResult(operation, value[3]);
+            solicitarValores();
+            value[2] = suma(value[0], value[1]);
+            printResult(operation, value[2]);
             break;
         case "resta":
-            value[3] = resta(value[1], value[2]);
-            printResult(operation, value[3]);
+            solicitarValores();
+            value[2] = resta(value[0], value[1]);
+            printResult(operation, value[2]);
             break;
         case "multiplicación":
-            value[3] = multiplicacion(value[1], value[2]);
-            printResult(operation, value[3]);
+            solicitarValores();
+            value[2] = multiplicacion(value[0], value[1]);
+            printResult(operation, value[2]);
             break;
         case "división":
-            value[3] = division(value[1], value[2]);
-            printResult(operation, value[3]);
+            solicitarValores();
+            value[2] = division(value[0], value[1]);
+            printResult(operation, value[2]);
             break;
-        default:
+        case "salir":
             alert(`¡Hasta la próxima!`);
+            flag = 1;
+            break
+        default:
+            alert(`¡Operación Inválida! Elija una operación correcta`);
     }
 }
 
+
+function home(){
+    return prompt("Ingrese tipo de operación. Escriba suma, resta, multiplicación, división o salir.");
+}
+
+function solicitarValores(){
+    value[0] = +prompt("Ingrese el primer valor");
+    value[1] = +prompt("Ingrese el segundo valor");
+}
 
 function suma(value1, value2){
     return value1 + value2;
@@ -48,6 +62,6 @@ function division(value1, value2){
 }
 
 function printResult(operation, result){
-    alert(`El resultado de la ${operation} es ${result}`);
+    alert(`El resultado de la ${operation} es = ${result}`);
 }
 
