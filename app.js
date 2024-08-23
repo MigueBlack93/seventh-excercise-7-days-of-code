@@ -6,25 +6,25 @@ while(flag == 0){
     operation = home();
     
     switch (operation){
-        case "suma":
+        case "+":
             solicitarValores();
             value[2] = suma(value[0], value[1]);
-            printResult(operation, value[2]);
+            printResult(operation, value[0], value[1], value[2]);
             break;
-        case "resta":
+        case "-":
             solicitarValores();
             value[2] = resta(value[0], value[1]);
-            printResult(operation, value[2]);
+            printResult(operation, value[0], value[1], value[2]);
             break;
-        case "multiplicación":
+        case "*":
             solicitarValores();
             value[2] = multiplicacion(value[0], value[1]);
-            printResult(operation, value[2]);
+            printResult(operation, value[0], value[1], value[2]);
             break;
-        case "división":
+        case "/":
             solicitarValores();
             value[2] = division(value[0], value[1]);
-            printResult(operation, value[2]);
+            printResult(operation, value[0], value[1], value[2]);
             break;
         case "salir":
             alert(`¡Hasta la próxima!`);
@@ -37,7 +37,7 @@ while(flag == 0){
 
 
 function home(){
-    return prompt("Ingrese tipo de operación. Escriba suma, resta, multiplicación, división o salir.");
+    return prompt("Ingrese tipo de operación. Escriba ' + ' para Suma, ' - ' para Resta, ' * ' para Multiplicación, ' / ' para División o ' salir '.");
 }
 
 function solicitarValores(){
@@ -61,7 +61,6 @@ function division(value1, value2){
     return value1 / value2;
 }
 
-function printResult(operation, result){
-    alert(`El resultado de la ${operation} es = ${result}`);
+function printResult(operation, value1, value2, result){
+    alert(`${value1} ${operation} ${value2} = ${result}`);
 }
-
